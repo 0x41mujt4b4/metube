@@ -1,0 +1,97 @@
+
+{% extends "YoutubeApp/base.html"%}
+{% load crispy_forms_tags %}
+{% load temptags %}
+{% block content %}
+    <div class="container my-4">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mainsearch">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control align-middle" name="url" placeholder="Past your video link here"">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">GO</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      {% if url != "" %}
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card text-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item card-img-top" src="https://www.youtube.com/embed/{{stream.videoid}}?rel=0"></iframe>
+                </div>
+                <div class="card-body">
+                  <a href="https://www.youtube.com/watch?v={{stream.videoid}}" class="btn btn-danger" target="_blank">Watch on Youtube</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card">
+                <h5 class="card-header">Video informations: </h5>
+                <div class="card-body">
+                  <h5 class="card-title">Title: <span>{{stream.title}}</span></h5>
+                  <h5 class="card-title">Duration: <span>{{stream.duration}}</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <br>
+        <div class="row">
+          <div class="col-sm-6">
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Quality</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for format in video %}
+                <tr>
+                  <td>{{ format.quality }}</td>
+                  <td>{{ format.extension }}</td>
+                  <td>{{ format.get_filesize|readable_size }}</td>
+                  <td><a href="/download/"><button type="button" class="btn btn-success">Download</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Quality</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for format in audio %}
+                <tr>
+                  <td>{{ format.quality }}</td>
+                  <td>{{ format.extension }}</td>
+                  <td>{{ format.get_filesize|readable_size }}</td>
+                  <td><a href="/download/"><button type="button" class="btn btn-success">Download</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+{% endblock content%}
+<!-- <script type="text/javascript">
+  $("#re").on( function () {
+    $("main").load("download.html");
+  })
+</script> -->

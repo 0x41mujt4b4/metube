@@ -1,0 +1,29 @@
+
+
+body {
+  background-image: url('/static/images/background0.jpg');
+  background-size: cover;
+}
+
+h5 {
+  font-style: italic;
+  font-weight: normal;
+}
+
+h5 span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    }
+
+/* .container{
+    min-height: 80vh;
+    min-width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .mainsearch {
+  margin: auto;
+} */

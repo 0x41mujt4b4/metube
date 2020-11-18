@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MeTube Beta 0.1</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">MeTube</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-right mx-4">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">About <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <!-- <form method="POST" class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" name="url" placeholder="Past your video link here">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">GO</button>
+            </div>
+          </div>
+        </form> -->
+      </div>
+    </nav>
+    {% block content%}{% endblock %}
+  </body>
+</html>
