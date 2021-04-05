@@ -3,6 +3,35 @@
 {% load crispy_forms_tags %}
 {% load temptags %}
 {% block content %}
+
+
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let loader = document.querySelector('.loader');
+      window.addEventListener("load", function(){
+        // loader.style.display = 'none';
+        loader.parentElement.removeChild(loader);
+      });
+    </script>
+
     <div class="container my-4">
       <form method="POST">
         {% csrf_token %}
