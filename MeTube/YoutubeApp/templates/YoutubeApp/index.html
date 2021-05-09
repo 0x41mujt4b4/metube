@@ -87,7 +87,7 @@
                   <td>{{ format.quality }}</td>
                   <td>{{ format.extension }}</td>
                   <td>{{ format.get_filesize|readable_size }}</td>
-                  <td><a href="/download/"><button type="button" class="btn btn-success">Download</button></a></td>
+                  <td><a href="/download/{{ file_name }}"><button type="button" class="btn btn-success">Download</button></a></td>
                 </tr>
                 {% endfor %}
               </tbody>
